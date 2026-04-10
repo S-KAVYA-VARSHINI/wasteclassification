@@ -1,0 +1,96 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background: rgba(15, 25, 50, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(78, 222, 163, 0.05);
+}
+
+.navbar__inner {
+  max-width: 1536px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #34d399;
+  letter-spacing: -0.02em;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: #94a3b8;
+  transition: color 0.2s ease;
+  padding-bottom: 0.25rem;
+}
+
+.nav-link:hover {
+  color: #6ee7b7;
+}
+
+.nav-link--active {
+  color: #34d399;
+  font-weight: 700;
+  border-bottom: 2px solid #34d399;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar__icon {
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-size: 1.25rem;
+}
+
+.navbar__icon:hover {
+  color: #6ee7b7;
+}
+
+.btn-gradient-sm {
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
+  color: var(--on-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-gradient-sm:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.25);
+}
+
+.btn-gradient-sm:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+}

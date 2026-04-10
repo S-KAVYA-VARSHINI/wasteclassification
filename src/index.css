@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════════════════
+   EcoSort AI — Design System: "The Luminous Eco-System"
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties (Design Tokens) ──────────────── */
+:root {
+  /* Foundation Surfaces */
+  --surface:                    #0b1326;
+  --surface-container-lowest:   #060e20;
+  --surface-container-low:      #131b2e;
+  --surface-container:          #171f33;
+  --surface-container-high:     #222a3d;
+  --surface-container-highest:  #2d3449;
+  --surface-bright:             #31394d;
+
+  /* Accents */
+  --primary:          #4edea3;
+  --secondary:        #4fdbc8;
+  --tertiary:         #4cd7f6;
+  --primary-container:#10b981;
+  --organic:          #F59E0B;
+  --non-organic:      #8B5CF6;
+
+  /* Text */
+  --on-surface:         #dae2fd;
+  --on-surface-variant: #bbcabf;
+  --on-primary:         #003824;
+
+  /* Borders & Outlines */
+  --outline:          #86948a;
+  --outline-variant:  #3c4a42;
+
+  /* Error */
+  --error: #ffb4ab;
+
+  /* Gradients */
+  --gradient-hero:   linear-gradient(135deg, #4edea3 0%, #4fdbc8 50%, #4cd7f6 100%);
+  --gradient-border: linear-gradient(135deg, #4edea3 0%, #4fdbc8 50%, #4cd7f6 100%);
+
+  /* Fonts */
+  --font-headline: 'Plus Jakarta Sans', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+}
+
+/* ── Reset & Base ───────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--surface);
+  color: var(--on-surface);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+::selection {
+  background: rgba(78, 222, 163, 0.3);
+  color: var(--on-surface);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--surface-container-highest); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ── Typography ─────────────────────────────────────────── */
+.font-headline { font-family: var(--font-headline); }
+.font-body     { font-family: var(--font-body); }
+.font-mono, .mono { font-family: var(--font-mono); }
+
+/* ── Glassmorphism ──────────────────────────────────────── */
+.glass {
+  background: rgba(23, 31, 51, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card {
+  background: rgba(23, 31, 51, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(78, 222, 163, 0.1);
+}
+
+.glass-nav {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Eco Glow Ring (conic gradient ring) ────────────────── */
+.eco-glow-ring {
+  background: conic-gradient(from 0deg, #4edea3 0%, #4fdbc8 50%, #4cd7f6 100%);
+  mask: radial-gradient(transparent 60%, black 61%);
+  -webkit-mask: radial-gradient(transparent 60%, black 61%);
+}
+
+/* ── Eco Progress Gradient ──────────────────────────────── */
+.eco-progress-gradient {
+  background: linear-gradient(90deg, #4edea3 0%, #4fdbc8 50%, #4cd7f6 100%);
+}
+
+/* ── Gradient Text ──────────────────────────────────────── */
+.eco-gradient-text {
+  background: linear-gradient(135deg, #4edea3, #4fdbc8, #4cd7f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow Border ────────────────────────────────────────── */
+.glow-border {
+  box-shadow: 0 0 20px rgba(78, 222, 163, 0.06);
+}
+
+.eco-glow-border {
+  box-shadow: 0 0 15px rgba(78, 222, 163, 0.06);
+}
+
+/* ── Material Symbols baseline ──────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(78, 222, 163, 0.2); }
+  50%      { box-shadow: 0 0 40px rgba(78, 222, 163, 0.4); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes borderRotate {
+  0%   { border-color: rgba(78, 222, 163, 0.3); }
+  33%  { border-color: rgba(79, 219, 200, 0.3); }
+  66%  { border-color: rgba(76, 215, 246, 0.3); }
+  100% { border-color: rgba(78, 222, 163, 0.3); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-border-rotate {
+  animation: borderRotate 3s linear infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ── Utility ────────────────────────────────────────────── */
+.container-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-wide {
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
